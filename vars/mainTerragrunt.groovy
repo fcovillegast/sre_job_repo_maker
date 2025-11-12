@@ -78,15 +78,41 @@ def call() {
                                     git init
                                     git add README.md
                                     git commit -m "First commit"
-                                    git branch -M main
+                                    git branch -M ${DEFAULT_BRANCH}
                                     git remote add origin https://github.com/${ORGANIZATION}/${GIT_REPOSITORY_NAME}.git
-                                    git push -u origin main
+                                    git push -u origin ${DEFAULT_BRANCH}
                                 """
                             }    
                         }   
                         
                     }
                 }
+
+
+                stage("Protect default branch") {
+                steps {
+                    script {
+                        withCredentials([
+                                usernamePassword([
+                                        credentialsId: 'github',
+                                        usernameVariable: 'GIT_USER',
+                                        passwordVariable: 'GIT_PASS'
+                                ])
+                        ]) {
+                            sh """
+                                curl -L \
+                                  -X PUT \
+                                  -H "Accept: application/vnd.github+json" \
+                                  -H "Authorization: Bearer ${GIT_PASS}" \
+                                  -H "X-GitHub-Api-Version: 2022-11-28" \
+                                  https://api.github.com/repos/${ORGANIZATION}/${GIT_REPOSITORY_NAME}/branches/${DEFAULT_BRANCH}/protection \
+                                  -d '{}'
+                        }   
+                        
+                    }
+                }
+
+                
             }
         }
         post {
