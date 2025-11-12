@@ -21,7 +21,7 @@ def call() {
         }
 
         stages {
-            stage("Clone") {
+            stage("Creation") {
                 steps {
                     script {
                         cleanWs()
