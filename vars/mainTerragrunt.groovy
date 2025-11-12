@@ -34,7 +34,7 @@ def call() {
                                 ])
                         ]) {
                             CURL_CMD = """
-                                curl -L \
+                                curl -s -L \
                                 -X POST \
                                 -H "Accept: application/vnd.github+json" \
                                 -H "Authorization: Bearer ${GIT_PASS}" \
