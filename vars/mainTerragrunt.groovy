@@ -44,6 +44,7 @@ def call() {
                                 | jq '.id'
                             """
 
+                            currentBuild.description =  "${ORGANIZATION}/${GIT_REPOSITORY_NAME}"                                
   
                             CREATED_ID = sh (script: "${CURL_CMD}",  returnStdout: true).trim()
                             
