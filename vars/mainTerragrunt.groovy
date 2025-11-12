@@ -68,7 +68,7 @@ def call() {
                                 ])
                         ]) {
                             sh """
-                                git clone http://${GIT_USER}:${GIT_PASS}@github.com/${ORGANIZATION}/${GIT_REPOSITORY_NAME}
+                                git clone https://${GIT_USER}:${GIT_PASS}@github.com/${ORGANIZATION}/${GIT_REPOSITORY_NAME}
                             """
 
                             dir(GIT_RESPOSITORY_NAME) {
