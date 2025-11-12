@@ -107,6 +107,7 @@ def call() {
                                   -H "X-GitHub-Api-Version: 2022-11-28" \
                                   https://api.github.com/repos/${ORGANIZATION}/${GIT_REPOSITORY_NAME}/branches/${DEFAULT_BRANCH}/protection \
                                   -d '{}'
+                              """
                         }   
                         
                     }
