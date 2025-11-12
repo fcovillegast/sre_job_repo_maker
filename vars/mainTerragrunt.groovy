@@ -42,7 +42,8 @@ def call() {
                                 https://api.github.com/orgs/${ORGANIZATION}/repos \
                                 -d '{"name":"${GIT_REPOSITORY_NAME}","description":"${GIT_REPOSITORY_DESCRIPTION}","private":true,"is_template":false}'    
                             """
-    
+
+                            println  "${CURL_CMD} | jq '.id' "   
                             CREATED_ID = sh (script: "${CURL_CMD} | jq '.id' ",  returnStdout: true).trim()
                             
                             println "CREATED_ID:${CREATED_ID}"
