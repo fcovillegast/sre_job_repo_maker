@@ -43,8 +43,8 @@ def call() {
                                 -d '{"name":"${GIT_REPOSITORY_NAME}","description":"${GIT_REPOSITORY_DESCRIPTION}","private":true,"is_template":false}'    
                             """
     
-                            CREATED_JSON = sh (script: CURL_CMD , returnStdout: true).trim()
-                            CREATED_ID = sh (script: """echo "${CREATED_JSON}" | jq '.id' """, returnStdout: true).trim()
+                            CREATED_ID = sh (script: "${CURL_CMD} | jq '.id' ",  returnStdout: true).trim()
+                            
                             println "CREATED_ID:${CREATED_ID}"
                             if(!CREATED_ID.isNumber()) {
                                 error("Repo creation failed!!! :( ")
