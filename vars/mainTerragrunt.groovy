@@ -72,7 +72,7 @@ def call() {
                                 git clone https://${GIT_USER}:${GIT_PASS}@github.com/${ORGANIZATION}/${GIT_REPOSITORY_NAME}
                             """
 
-                            dir(GIT_RESPOSITORY_NAME) {
+                            dir(GIT_REPOSITORY_NAME) {
                                 sh """
                                     echo "# ${GIT_REPOSITORY_NAME}" >> README.md
                                     echo " ${GIT_REPOSITORY_DESCRIPTION}" >> README.md
