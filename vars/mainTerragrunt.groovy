@@ -42,6 +42,8 @@ def call() {
                             https://api.github.com/${ORGANIZATION}/repos \
                             -d '{"name":"${GIT_REPOSITORY_NAME}","description":"${GIT_REPOSITORY_DESCRIPTION}","private":false,"is_template":true}'    
                         """
+
+                            sh CURL_CMD
                         }                      
 
                     }
