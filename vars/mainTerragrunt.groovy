@@ -40,11 +40,12 @@ def call() {
                                 -H "Authorization: Bearer ${GIT_PASS}" \
                                 -H "X-GitHub-Api-Version: 2022-11-28" \
                                 https://api.github.com/orgs/${ORGANIZATION}/repos \
-                                -d '{"name":"${GIT_REPOSITORY_NAME}","description":"${GIT_REPOSITORY_DESCRIPTION}","private":true,"is_template":false}'    
+                                -d '{"name":"${GIT_REPOSITORY_NAME}","description":"${GIT_REPOSITORY_DESCRIPTION}","private":true,"is_template":false}' \
+                                | jq '.id'
                             """
 
-                            println  "${CURL_CMD} | jq '.id' "   
-                            CREATED_ID = sh (script: "${CURL_CMD} | jq '.id' ",  returnStdout: true).trim()
+  
+                            CREATED_ID = sh (script: "${CURL_CMD}",  returnStdout: true).trim()
                             
                             println "CREATED_ID:${CREATED_ID}"
                             if(!CREATED_ID.isNumber()) {
