@@ -39,7 +39,7 @@ def call() {
                             -H "Accept: application/vnd.github+json" \
                             -H "Authorization: Bearer ${GIT_PASS}" \
                             -H "X-GitHub-Api-Version: 2022-11-28" \
-                            https://api.github.com/${ORGANIZATION}/repos \
+                            https://api.github.com/orgs/${ORGANIZATION}/repos
                             -d '{"name":"${GIT_REPOSITORY_NAME}","description":"${GIT_REPOSITORY_DESCRIPTION}","private":false,"is_template":true}'    
                         """
 
