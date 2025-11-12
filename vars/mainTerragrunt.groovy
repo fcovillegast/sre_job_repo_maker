@@ -56,6 +56,38 @@ def call() {
                     }
                 }
             }
+
+            stage("Init repository") {
+                steps {
+                    script {
+                        withCredentials([
+                                usernamePassword([
+                                        credentialsId: 'github',
+                                        usernameVariable: 'GIT_USER',
+                                        passwordVariable: 'GIT_PASS'
+                                ])
+                        ]) {
+                            sh """
+                                git clone http://${GIT_USER}:${GIT_PASS}@github.com/${ORGANIZATION}/${GIT_REPOSITORY_NAME}
+                            """
+
+                            dir(GIT_RESPOSITORY_NAME) {
+                                sh """
+                                    echo "# ${GIT_REPOSITORY_NAME}" >> README.md
+                                    echo " ${GIT_REPOSITORY_DESCRIPTION}" >> README.md
+                                    git init
+                                    git add README.md
+                                    git commit -m "First commit"
+                                    git branch -M main
+                                    git remote add origin https://github.com/${ORGANIZATION}/${GIT_REPOSITORY_NAME}.git
+                                    git push -u origin main
+                                """
+                            }    
+                        }   
+                        
+                    }
+                }
+            }
         }
         post {
             always {
