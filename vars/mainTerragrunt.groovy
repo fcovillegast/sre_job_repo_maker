@@ -87,9 +87,10 @@ def call() {
                         
                     }
                 }
+            }
 
 
-                stage("Protect default branch") {
+            stage("Protect default branch") {
                 steps {
                     script {
                         withCredentials([
@@ -112,9 +113,10 @@ def call() {
                         
                     }
                 }
+            }
 
                 
-            }
+        
         }
         post {
             always {
