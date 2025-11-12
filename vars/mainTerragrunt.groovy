@@ -80,7 +80,7 @@ def call() {
                                     git add README.md
                                     git commit -m "First commit"
                                     git branch -M ${DEFAULT_BRANCH}
-                                    git remote add origin https://github.com/${ORGANIZATION}/${GIT_REPOSITORY_NAME}.git
+                                    #git remote add origin https://github.com/${ORGANIZATION}/${GIT_REPOSITORY_NAME}.git
                                     git push -u origin ${DEFAULT_BRANCH}
                                 """
                             }    
