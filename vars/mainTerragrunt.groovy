@@ -108,7 +108,7 @@ def call() {
                                   -H "Authorization: Bearer ${GIT_PASS}" \
                                   -H "X-GitHub-Api-Version: 2022-11-28" \
                                   https://api.github.com/repos/${ORGANIZATION}/${GIT_REPOSITORY_NAME}/branches/${DEFAULT_BRANCH}/protection \
-                                  -d '{"required_status_checks":{"strict":false,"contexts":[]},"enforce_admins":true,"required_pull_request_reviews":{"dismissal_restrictions":{"users":[],"teams":[]},"dismiss_stale_reviews":true,"require_code_owner_reviews":true,"required_linear_history":true,"allow_force_pushes":false,"allow_deletions":true,"block_creations":true,"required_conversation_resolution":true,"lock_branch":true,"allow_fork_syncing":true,"restrictions":{"users":[],"teams":[],"apps":[]} }'
+                                  -d '{"required_status_checks":{"strict":false,"contexts":[]},"enforce_admins":true,"required_pull_request_reviews":{"dismissal_restrictions":{"users":[],"teams":[]},"dismiss_stale_reviews":true,"require_code_owner_reviews":true,"required_linear_history":true,"allow_force_pushes":false,"allow_deletions":true,"block_creations":true,"required_conversation_resolution":true,"lock_branch":true,"allow_fork_syncing":true,"restrictions":{} }'
                               """
                         }   
                         
