@@ -108,7 +108,7 @@ def call() {
                                   -H "Authorization: Bearer ${GIT_PASS}" \
                                   -H "X-GitHub-Api-Version: 2022-11-28" \
                                   https://api.github.com/repos/${ORGANIZATION}/${GIT_REPOSITORY_NAME}/branches/${DEFAULT_BRANCH}/protection \
-                                  -d '{"required_status_checks":{"strict":true,"contexts":[]},"enforce_admins":true,"required_pull_request_reviews":{"dismissal_restrictions":{"users":[],"teams":[]},"dismiss_stale_reviews":true,"require_code_owner_reviews":true,"require_last_push_approval":true,"required_linear_history":true,"required_conversation_resolution":true,"lock_branch":true,"allow_fork_syncing":true}'
+                                  -d '{"required_linear_history":true,"required_conversation_resolution":true,"lock_branch":true,"allow_fork_syncing":true}'
                               """
                         }   
                         
