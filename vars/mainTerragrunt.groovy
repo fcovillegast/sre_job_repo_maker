@@ -132,7 +132,7 @@ def call() {
                                     },
                                     "required_linear_history": true,
                                     "allow_force_pushes": false,
-                                    "allow_deletions": true,
+                                    "allow_deletions": false,
                                     "block_creations": true,
                                     "required_conversation_resolution": true,
                                     "lock_branch": true,
