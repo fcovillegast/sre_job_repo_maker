@@ -110,14 +110,19 @@ def call() {
                                   -H "X-GitHub-Api-Version: 2022-11-28" \
                                   https://api.github.com/repos/${ORGANIZATION}/${GIT_REPOSITORY_NAME}/branches/${DEFAULT_BRANCH}/protection \
                                   -d '{
-                                    "required_linear_history": true,
+                                    "required_status_checks": null,
+                                    "enforce_admins": null,
+                                    "required_pull_request_reviews": null,
+                                    "restrictions": null,
+                                    "required_linear_history": false,
                                     "allow_force_pushes": false,
                                     "allow_deletions": false,
                                     "block_creations": false,
-                                    "required_conversation_resolution": true,
+                                    "required_conversation_resolution": false,
                                     "lock_branch": false,
-                                    "allow_fork_syncing": true
+                                    "allow_fork_syncing": false
                                   }'
+
                                
                               """
                         }   
