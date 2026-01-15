@@ -136,7 +136,7 @@ def call() {
         }
         post {
             always {
-                node("${JENKINS_AGENT_LABEL}") {
+                node("finalizer") {
                     sh("rm -f ~/.gitconfig")
                 }
             }
