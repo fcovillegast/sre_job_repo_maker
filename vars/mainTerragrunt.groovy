@@ -77,6 +77,10 @@ def call() {
                                     echo "# ${GIT_REPOSITORY_NAME}" >> README.md
                                     echo " ${GIT_REPOSITORY_DESCRIPTION}" >> README.md
                                     git init
+                                    
+                                    git config --global user.email "bot@gmail.com"
+                                    git config --global user.name "Automation"
+  
                                     git add README.md
                                     git commit -m "First commit"
                                     git branch -M ${DEFAULT_BRANCH}
